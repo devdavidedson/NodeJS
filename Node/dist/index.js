@@ -4,4 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const validator_1 = __importDefault(require("validator"));
-console.log(validator_1.default.isEmail("davidsvce@gmail.com"));
+let name = 'dayanne';
+if (validator_1.default.isLowercase(name)) {
+    console.log(`A String ${name} está toda minúscula`);
+}
+else {
+    console.log(`A String ${name} NÃO É toda minúscula`);
+}
+;
