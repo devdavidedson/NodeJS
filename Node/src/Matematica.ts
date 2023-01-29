@@ -3,13 +3,15 @@ const somar = (x:number, y:number):number => {
 };
 
 const subtrair = (x:number, y:number):number => {
-    return(x + y)
+    return(x - y)
 };
 
 const multiplicar = (x:number, y:number):number => {
-    return(x + y)
+    return(x * y)
 };
 
-module.exports.somar = somar;
-module.exports.subtrair = subtrair;
-module.exports.multiplicar = multiplicar;
+export default {
+    somar,
+    subtrair,
+    multiplicar
+};
