@@ -10,5 +10,22 @@
     {{#showOld}}
         Olá , tudo bem?
     {{/showOld}}
+    <hr>
+
+    <h2> Lista de Produtos</h2>
+
+    <ul>
+        {{#products}}
+            <li>{{ title }} - R$: {{ price }}</li>
+        {{/products}}
+    </ul>
+    <br>
+    <hr>
+
+    <ul>
+        {{#FrasesDoDia}}
+            <li>{{.}}</li>
+        {{/FrasesDoDia}}
+    </ul>
 </body>
 </html>
