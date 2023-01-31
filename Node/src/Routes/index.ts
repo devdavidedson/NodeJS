@@ -12,17 +12,14 @@ router.get('/', (req: Request, res: Response) => {
     
     res.render('home', {
         name: 'Dayanne',
-        age,
+        LastName: 'Freitas',
         showOld,
         products:[
             {title:'Produto X', price:'10'},
             {title:'Produto Y', price:'14'},
             {title:'Produto Z', price:'18'}
         ],
-        FrasesDoDia: [
-            'Motive-se pq não cai do céu',
-            'Ninguém vai fazer por você'
-        ]
+        FrasesDoDia: []
     })
 });
 

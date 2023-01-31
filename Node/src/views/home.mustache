@@ -1,15 +1,21 @@
 <html>
-<header>
+<head>
     <title>Página Home</title>
-</header>
+</head>
 <body>
     <h1>Titulo da Página</h1>
-        <hr>
-    Opa {{ name }} você já tem {{ age }} anos?
+    <p>
+        Opa {{ name }} {{ LastName }} tudo bem?
+        {{#showOld}}
+            Como vai a vida??
+        {{/showOld}}
 
-    {{#showOld}}
-        Olá , tudo bem?
-    {{/showOld}}
+        {{^showOld}}
+            Beleza?
+        {{/showOld}}
+        
+    </p>
+    <br>
     <hr>
 
     <h2> Lista de Produtos</h2>
@@ -25,6 +31,9 @@
     <ul>
         {{#FrasesDoDia}}
             <li>{{.}}</li>
+        {{/FrasesDoDia}}
+        {{^FrasesDoDia}}
+           Não há frases do dia hoje.
         {{/FrasesDoDia}}
     </ul>
 </body>
