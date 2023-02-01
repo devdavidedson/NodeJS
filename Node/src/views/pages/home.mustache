@@ -1,9 +1,4 @@
-<html>
-<head>
-    <title>Página Home</title>
-</head>
-<body>
-    <h1>Titulo da Página</h1>
+{{>partials/header}}
     <p>
         Opa {{ name }} {{ LastName }} tudo bem?
         {{#showOld}}
@@ -36,5 +31,5 @@
            Não há frases do dia hoje.
         {{/FrasesDoDia}}
     </ul>
-</body>
-</html>
+
+{{>partials/footer}}
