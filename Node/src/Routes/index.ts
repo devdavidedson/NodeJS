@@ -31,4 +31,12 @@ router.get('/sobre', (req: Request, res: Response) => {
     res.render('pages/sobre')
 });
 
+router.get('/nome', (req: Request, res: Response) => {
+    let nome: string = req.query.nome as string;
+
+    res.render('pages/nome', {
+        nome
+    })
+})
+
 export default router;
