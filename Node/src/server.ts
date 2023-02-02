@@ -1,8 +1,10 @@
 import express, {Request, Response} from 'express';
 import path from 'path';
-
+import dotenv from 'dotenv';
 import mustache from 'mustache-express';
 import mainRoutes from './Routes/index';
+
+dotenv.config();
 
 const server = express();
 
@@ -20,4 +22,4 @@ server.use((req: Request, res: Response) => {
     res.status(404).send('Page not Found!')
 });
 
-server.listen(80);
+server.listen(process.env.PORT);
