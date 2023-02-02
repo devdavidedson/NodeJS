@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 
+import { Product } from "../models/Products";
+
 export const home =  (req: Request, res: Response) => {
     let age: number = 90;
     let showOld = false;
@@ -8,17 +10,16 @@ export const home =  (req: Request, res: Response) => {
         showOld = true
     }
     
+    let list = Product.getAll();
+    let expansiveList = Product.getFromPriceAfter(12);
+
     res.render('pages/home', {
         name: 'Dayanne',
         LastName: 'Freitas',
         showOld,
-        products:[
-            {title:'Produto X', price:'10'},
-            {title:'Produto Y', price:'14'},
-            {title:'Produto Z', price:'18'}
-        ],
+        products: list,
+        expensive: expansiveList,
         FrasesDoDia: [
-            'Minha esposa é uma gata e pensa que não é'
         ]
     })
 };

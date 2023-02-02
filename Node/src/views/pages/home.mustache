@@ -11,16 +11,23 @@
         
     </p>
     <br>
+
     <hr>
-
     <h2> Lista de Produtos</h2>
-
-    <ul>
-        {{#products}}
-            <li>{{ title }} - R$: {{ price }}</li>
-        {{/products}}
-    </ul>
+        <ul>
+            {{#products}}
+                <li>{{ title }} - R$: {{ price }}</li>
+            {{/products}}
+        </ul>
     <br>
+
+    <hr>
+    <h2> Lista de Produtos Caros</h2>
+        <ul>
+            {{#expensive}}
+                <li>{{ title }} - R$: {{ price }}</li>
+            {{/expensive}}
+        </ul>
     <hr>
 
     <ul>
