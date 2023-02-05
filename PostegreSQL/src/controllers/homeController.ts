@@ -1,10 +1,16 @@
 import { Request, Response } from 'express';
+import { Op } from 'sequelize';
 
 import { Product } from '../models/Product';
 import { User } from '../models/User';
 
 export const home = async (req: Request, res: Response)=>{
-    const users = await User.findAll();
+    const users = await User.findAll({
+        where: {
+            age: [55, 90]
+        }
+    });
+
 
     let age: number = 90;
     let showOld: boolean = false;
