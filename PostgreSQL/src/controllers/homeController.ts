@@ -1,8 +1,17 @@
 import { Request, Response } from 'express';
 
+import { sequelize } from '../instances/pg';
+
 import { Product } from '../models/Product';
 
-export const home = (req: Request, res: Response)=>{
+export const home = async (req: Request, res: Response)=>{
+    try {
+        await sequelize.authenticate();
+        console.log("Conexão estabelicida com Sucesso");
+    } catch(error) {
+        console.log("DEU ERRO", error)
+    }
+
     let age: number = 90;
     let showOld: boolean = false;
 
