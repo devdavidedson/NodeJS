@@ -2,9 +2,18 @@ import { Request, Response } from 'express';
 
 import { User } from '../models/User';
 import { Product } from '../models/Product';
+import { Op } from 'sequelize';
 
 export const home = async (req: Request, res: Response)=>{
-    let users = await User.findAll();
+    const searchName: string = 'Da';
+    
+    let users = await User.findAll({
+        where: {
+            name: {
+                [Op.like]: `%${searchName}%`
+            }
+        }
+    });
 
     let age: number = 90;
     let showOld: boolean = false;
@@ -17,8 +26,8 @@ export const home = async (req: Request, res: Response)=>{
     let expensiveList = Product.getFromPriceAfter(12);
 
     res.render('pages/home', {
-        name: 'Bonieky',
-        lastName: 'Lacerda',
+        name: 'David',
+        lastName: 'Edson',
         showOld,
         products: list,
         expensives: expensiveList,
