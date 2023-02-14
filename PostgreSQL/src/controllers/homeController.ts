@@ -13,9 +13,8 @@ export const home = async (req: Request, res: Response)=>{
             [Op.gte]: 18
             }
         },
-        order: [
-            ['age', 'DESC']
-        ]
+        offset: 1,
+        limit: 2
     });
 
     let age: number = 90;
