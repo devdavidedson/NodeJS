@@ -9,10 +9,13 @@ export const home = async (req: Request, res: Response)=>{
     
     let users = await User.findAll({
         where: {
-            name: {
-                [Op.like]: `%${searchName}%`
+            age: {
+            [Op.gte]: 18
             }
-        }
+        },
+        order: [
+            ['age', 'DESC']
+        ]
     });
 
     let age: number = 90;
