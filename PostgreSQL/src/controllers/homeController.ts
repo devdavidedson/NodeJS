@@ -4,23 +4,7 @@ import { User } from '../models/User';
 import { Product } from '../models/Product';
 
 export const home = async (req: Request, res: Response)=>{
-    /* build + save
-    const user = User.build({
-        name: "Sicrano",
-    });
-
-    await user.save(); */
-
-    //com Create
-    const user = await User.create({
-        name: 'Gustava',
-        age: 25
-    });
-
-    console.log(user.name);
-    console.log(user.age);
-
-
+    const users = await User.findAll();
 
     let age: number = 90;
     let showOld: boolean = false;
@@ -39,5 +23,22 @@ export const home = async (req: Request, res: Response)=>{
         products: list,
         expensives: expensiveList,
         frasesDoDia: [],
+        users
     });
 };
+
+export const novoUsuario = async (req: Request, res: Response) => {
+    let { name, age } = req.body;
+
+    if (name) {
+        const newUser = User.build({ name });
+
+        if (age) {
+            newUser.age = parseInt(age)
+        }
+
+        await newUser.save()
+    }
+
+    res.redirect('/');
+}
