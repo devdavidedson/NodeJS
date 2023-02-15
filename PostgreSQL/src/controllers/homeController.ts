@@ -2,20 +2,25 @@ import { Request, Response } from 'express';
 
 import { User } from '../models/User';
 import { Product } from '../models/Product';
-import { Op } from 'sequelize';
 
 export const home = async (req: Request, res: Response)=>{
-    const searchName: string = 'Da';
-    
-    let users = await User.findAll({
-        where: {
-            age: {
-            [Op.gte]: 18
-            }
-        },
-        offset: 1,
-        limit: 2
+    /* build + save
+    const user = User.build({
+        name: "Sicrano",
     });
+
+    await user.save(); */
+
+    //com Create
+    const user = await User.create({
+        name: 'Gustava',
+        age: 25
+    });
+
+    console.log(user.name);
+    console.log(user.age);
+
+
 
     let age: number = 90;
     let showOld: boolean = false;
@@ -34,6 +39,5 @@ export const home = async (req: Request, res: Response)=>{
         products: list,
         expensives: expensiveList,
         frasesDoDia: [],
-        users
     });
 };
