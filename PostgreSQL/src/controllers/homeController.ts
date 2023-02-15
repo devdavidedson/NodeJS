@@ -5,22 +5,15 @@ import { Product } from '../models/Product';
 import { Op } from 'sequelize';
 
 export const home = async (req: Request, res: Response)=>{
-    // alterando muitos usuários
-    await User.update({ age: 18 },{
-        where: {
-            age: {
-                [Op.lt]: 18
-            }
-        }
-    });
-    // Alterando um só
-    await User.update({ name: 'Seu David Edson', age: 33 }, {
-        where: {
-            id: 4
-            }
-        });
-   
-   
+    let results = await User.findAll({where: { id: 4 }});
+    if (results.length > 0) {
+        let usuario = results[0];
+        
+        usuario.name = 'David Edson';
+        usuario.age = 34;
+
+        await usuario.save();
+    };
    
     const users = await User.findAll();
 
