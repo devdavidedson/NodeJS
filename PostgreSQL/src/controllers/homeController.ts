@@ -5,16 +5,7 @@ import { Product } from '../models/Product';
 import { Op } from 'sequelize';
 
 export const home = async (req: Request, res: Response)=>{
-    let results = await User.findAll({where: { id: 4 }});
-    if (results.length > 0) {
-        let usuario = results[0];
-        
-        usuario.name = 'David Edson';
-        usuario.age = 34;
-
-        await usuario.save();
-    };
-   
+       
     const users = await User.findAll();
 
     let age: number = 90;
