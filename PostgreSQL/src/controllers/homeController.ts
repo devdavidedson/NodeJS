@@ -6,6 +6,19 @@ import { Op } from 'sequelize';
 
 export const home = async (req: Request, res: Response)=>{
        
+    let [usuario, created] = await User.findOrCreate({
+        where: { name: 'David Edson'},
+        defaults: {
+            age: 34
+        }
+    });
+
+    if(created) {
+        console.log('usuário criado com sucesso');
+    } else {
+        console.log("achamos o usuário")
+    }
+    
     const users = await User.findAll();
 
     let age: number = 90;
