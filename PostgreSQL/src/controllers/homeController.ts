@@ -13,9 +13,11 @@ export const home = async (req: Request, res: Response)=>{
     if(age > 50) {
         showOld = true;
     }
+
+    let query: string = req.query.q as string;
     
     let list = Product.getAll();
-    
+    let expensiveList = Product.getFromPriceAfter(parseInt(query));
 
     res.render('pages/home', {
         name: 'David',
@@ -23,6 +25,7 @@ export const home = async (req: Request, res: Response)=>{
         showOld,
         frasesDoDia: [],
         products: list,
+        expensives: expensiveList,
         users
     });
 };
@@ -42,20 +45,3 @@ export const novoUsuario = async (req: Request, res: Response) => {
 
     res.redirect('/');
 }
-
-export const getPrice = (req: Request, res: Response) => {
-    let query: string = req.query.q as string;
-    let price: number = parseInt(query);
-
-    if (isNaN(price)) {
-        res.status(400).send("Invalid query parameter");
-        return;
-    }
-
-    let expensiveList = Product.getFromPriceAfter(parseInt(query));
-
-    res.render('pages/home', {
-        expensives: expensiveList
-    })
-
-};

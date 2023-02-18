@@ -13,8 +13,8 @@ Opa {{name}} {{lastName}}, tudo bem?
 <fieldset>
     <legend>Novo Usuário</legend>
     <form method="POST" action="/novousuario">
-        <input type="text" name="name" placeholder="Digite um nome" /><br/><br/>
-        <input type="text" name="age" placeholder="Digite uma idade" /><br/><br/>
+        Nome:<input type="text" name="name" placeholder="Digite um nome" /><br/><br/>
+        Idade: <input type="text" name="age" placeholder="Digite uma idade" /><br/><br/>
         <input type="submit" value="Inserir Usuário" />
     </form>
 </fieldset>
@@ -41,8 +41,8 @@ Opa {{name}} {{lastName}}, tudo bem?
 
 <hr/>
 <h2>Filtre os Produtos por Preço</h2>
-    <form method="GET" action="/search">
-        <input type="search" name="q" placeholder="Filtro de Preço" value="{{ query }}" />
+    <form method="GET" action="/">
+        Valor R$:<input type="search" name="q" placeholder="Filtro de Preço" value="{{ query }}" />
     </form>
 <ul>
     {{#expensives}}

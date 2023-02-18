@@ -8,7 +8,6 @@ const router = Router();
 
 router.get('/', HomeController.home);
 router.post('/novousuario', HomeController.novoUsuario);
-router.get('/search', HomeController.getPrice);
 
 router.get('/usuario/:id/mais', UserController.addIdade);
 router.get('/usuario/:id/menos', UserController.diminuirIdade);
