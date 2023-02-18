@@ -10,7 +10,7 @@ Opa {{name}} {{lastName}}, tudo bem?
 
 <hr/>
 
-<fieldset>
+<fieldset class='fieldCad'>
     <legend>Novo Usuário</legend>
     <form method="POST" action="/novousuario">
         Nome:<input type="text" name="name" placeholder="Digite um nome" /><br/><br/>
@@ -19,25 +19,43 @@ Opa {{name}} {{lastName}}, tudo bem?
     </form>
 </fieldset>
 
-<h2>Usuários do Banco de Dados</h2>
-<ul>
-    {{#users}}
-        <li>
-            {{name}} - Idade: {{age}}
-            - <a href='/usuario/{{id}}/mais'>+</a>
-            - <a href='/usuario/{{id}}/menos'>-</a>
-            - <a href='/usuario/{{id}}/excluir'>Excluir</a>
-        </li>
-    {{/users}}
-</ul>
-
-<hr/>
-<h2>Produtos</h2>
-<ul>
-    {{#products}}
-        {{>partials/productItem}}
-    {{/products}}
-</ul>
+<h2>Usuários do Banco de Dados</h2><br>
+   
+    <table class="my-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Botões</th>
+            </tr>
+        </thead>
+         {{#users}}
+        <tbody>
+            <tr>
+                <td>{{name}}</td>
+                <td>{{age}}</td>
+                <td>
+                    - <a href='/usuario/{{id}}/mais'>+</a>
+                    - <a href='/usuario/{{id}}/menos'>-</a>
+                    - <a href='/usuario/{{id}}/excluir'>Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+        {{/users}}
+    </table>   
+    
+<h2>Produtos</h2><br>
+    <table class="my-table">
+        <thead>
+                <tr>
+                    <th>Produço</th>
+                    <th>R$</th>
+                </tr>
+        </thead>
+        {{#products}}
+            {{>partials/productItem}}
+        {{/products}}
+    </table>
 
 <hr/>
 <h2>Filtre os Produtos por Preço</h2>
