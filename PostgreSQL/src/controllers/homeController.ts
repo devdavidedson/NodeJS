@@ -20,8 +20,8 @@ export const home = async (req: Request, res: Response)=>{
     let expensiveList = Product.getFromPriceAfter(parseInt(query));
 
     res.render('pages/home', {
-        name: 'David',
-        lastName: 'Edson',
+        name: 'Robson',
+        lastName: 'Freite',
         showOld,
         frasesDoDia: [],
         products: list,

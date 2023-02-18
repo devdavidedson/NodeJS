@@ -35,48 +35,48 @@ Opa {{name}} {{lastName}}, tudo bem?
                 <td>{{name}}</td>
                 <td>{{age}}</td>
                 <td>
-                    - <a href='/usuario/{{id}}/mais'>+</a>
-                    - <a href='/usuario/{{id}}/menos'>-</a>
-                    - <a href='/usuario/{{id}}/excluir'>Excluir</a>
+                    <a href='/usuario/{{id}}/mais'>+</a>
+                    <a href='/usuario/{{id}}/menos'>-</a>
+                    <a href='/usuario/{{id}}/excluir'>Excluir</a>
                 </td>
             </tr>
         </tbody>
         {{/users}}
     </table>   
     
-<h2>Produtos</h2><br>
-    <table class="my-table">
-        <thead>
-                <tr>
-                    <th>Produço</th>
-                    <th>R$</th>
-                </tr>
-        </thead>
-        {{#products}}
-            {{>partials/productItem}}
-        {{/products}}
-    </table>
-
-<hr/>
-<h2>Filtre os Produtos por Preço</h2>
-    <form method="GET" action="/">
-        Valor R$:<input type="search" name="q" placeholder="Filtro de Preço" value="{{ query }}" />
-    </form>
-<ul>
-    {{#expensives}}
-        {{>partials/productItem}}
-    {{/expensives}}
-</ul>
-
-<hr/>
-
-<ul>
-    {{#frasesDoDia}}
-        <li>{{.}}</li>
-    {{/frasesDoDia}}
-    {{^frasesDoDia}}
-        Não há frases motivacionais hoje.
-    {{/frasesDoDia}}
-</ul>
+<div class="container">
+    <div class="left-div">
+        <h2>Produtos</h2><br>
+            <table class="my-table">
+                <thead>
+                        <tr>
+                            <th>Produço</th>
+                            <th>R$</th>
+                        </tr>
+                </thead>
+                {{#products}}
+                    {{>partials/productItem}}
+                {{/products}}
+            </table>
+    </div>
+    
+    <div class="right-div">
+        <h2>Filtre os Produtos por Preço</h2>
+            <form class="filtro" method="GET" action="/">
+                Valor R$:<input type="search" name="q" placeholder="Filtro de Preço" value="{{ query }}" />
+            </form>
+            <table class="my-table">
+                <thead>
+                        <tr>
+                            <th>Produço</th>
+                            <th>R$</th>
+                        </tr>
+                </thead>
+                {{#expensives}}
+                    {{>partials/productItem}}
+                {{/expensives}}
+            </table>
+    </div>
+</div>
 
 {{>partials/footer}}
