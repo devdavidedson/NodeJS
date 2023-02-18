@@ -40,8 +40,10 @@ Opa {{name}} {{lastName}}, tudo bem?
 </ul>
 
 <hr/>
-<h2>Produtos a partir de R$ 12</h2>
-
+<h2>Filtre os Produtos por Preço</h2>
+    <form method="GET" action="/search">
+        <input type="search" name="q" placeholder="Filtro de Preço" value="{{ query }}" />
+    </form>
 <ul>
     {{#expensives}}
         {{>partials/productItem}}

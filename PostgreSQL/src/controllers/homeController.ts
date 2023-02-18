@@ -1,8 +1,7 @@
-import { Request, Response } from 'express';
+import { query, Request, response, Response } from 'express';
 
 import { User } from '../models/User';
 import { Product } from '../models/Product';
-import { Op } from 'sequelize';
 
 export const home = async (req: Request, res: Response)=>{
     
@@ -14,17 +13,16 @@ export const home = async (req: Request, res: Response)=>{
     if(age > 50) {
         showOld = true;
     }
-
+    
     let list = Product.getAll();
-    let expensiveList = Product.getFromPriceAfter(12);
+    
 
     res.render('pages/home', {
         name: 'David',
         lastName: 'Edson',
         showOld,
-        products: list,
-        expensives: expensiveList,
         frasesDoDia: [],
+        products: list,
         users
     });
 };
@@ -44,3 +42,20 @@ export const novoUsuario = async (req: Request, res: Response) => {
 
     res.redirect('/');
 }
+
+export const getPrice = (req: Request, res: Response) => {
+    let query: string = req.query.q as string;
+    let price: number = parseInt(query);
+
+    if (isNaN(price)) {
+        res.status(400).send("Invalid query parameter");
+        return;
+    }
+
+    let expensiveList = Product.getFromPriceAfter(parseInt(query));
+
+    res.render('pages/home', {
+        expensives: expensiveList
+    })
+
+};
