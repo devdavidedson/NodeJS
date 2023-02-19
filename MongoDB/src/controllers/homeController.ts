@@ -4,7 +4,11 @@ import { Product } from '../models/Product';
 import User from '../models/User';
 
 export const home = async (req: Request, res: Response)=>{
-    const usuarios = await User.find({});
+    const usuarios = await User.find({
+        email: 'mrkmil@gmail.com'
+    });
+
+    console.log("USUARIO", usuarios);
 
     let age: number = 90;
     let showOld: boolean = false;
