@@ -4,11 +4,16 @@ import { Product } from '../models/Product';
 import User from '../models/User';
 
 export const home = async (req: Request, res: Response)=>{
-    const usuarios = await User.find({
-        age: { $gt: 18 }
-    }).skip(2).limit(2);
+    
+    /* const newUsers = new User();
+        newUsers.name = {firstName: 'Denia', lastName: 'Casimiro'};
+        newUsers.email = 'deniacasimiro@hotmail.com';
+        newUsers.age = 21;
+        newUsers.interests.push('Viajar', 'Comer', 'Tecnologia');
 
-    console.log("USUARIO", usuarios);
+        const resultado = await newUsers.save(); 
+
+        console.log('NOVO USUARIO', resultado); */
 
     let age: number = 90;
     let showOld: boolean = false;

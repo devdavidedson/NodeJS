@@ -3,7 +3,7 @@ import { Schema, model, Model, connection } from "mongoose";
 type UserType = {
     email: string,
     age: number,
-    interest: [string],
+    interests: [string],
     name: {
         firstName: string,
         lastName: string
@@ -13,7 +13,7 @@ type UserType = {
 const schema = new Schema<UserType>({
     email: {type: String, required: true},
     age: {type: Number, required: true},
-    interest: [String],
+    interests: [String],
     name: {
       firstName: {type: String, required: true},
       lastName: String
