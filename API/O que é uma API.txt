@@ -1,0 +1,23 @@
+-O que é uma API?
+
+-- Aplication Programming Interface.
+-- Interface de programação de aplicações.
+
+- Webservices = serviços web 
+
+- REST
+
+-- Representional State Tranfer
+-- Transferência de estado Representional
+
+- RESTful é o sistema que utiliza o REST
+
+________________________________________________
+
+o método dirá o que você quer fazer com a URL
+
+GET https://meusite.com/api/users => GET pegar informações
+GET https://meusite.com/api/user/10 => um usuário específico
+PUT https://meusite.com/api/user/10 => modificar (name: 'Bonieky', age: 22)
+POST https://meusite.com/api/user/10 => adicionar (name: 'Bonieky', age: 22)
+DELETE https://meusite.com/api/user/10 => deletar um usuário
