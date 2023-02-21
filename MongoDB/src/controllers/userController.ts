@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import User from '../models/User';
 
 export const nome = (req: Request, res: Response) => {
     let nome: string = req.query.nome as string;
@@ -29,4 +30,26 @@ export const idadeAction = (req: Request, res: Response) => {
         idade,
         mostrarIdade
     });
+};
+
+export const registrarUsuario = async (req: Request, res: Response) => {
+    const { name, lastName, email, age, interests } = req.body;
+
+    const user = new User();
+
+    if (name && email && age) {
+        user.name.firstName = name
+        user.name.lastName = lastName
+        user.email = email
+        user.age = parseInt(age)
+        user.interests = interests.split(' ')
+
+        user.save()
+    }
+
+    else {
+        console.log(`ERROR :: ${name}, ${email}, ${age}`)
+    }
+
+    res.redirect('/')
 };
